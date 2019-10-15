@@ -1,0 +1,14 @@
+{
+    "name": "frc/c-info-generator",
+    "description": "Kopiosto C-Info Generator.",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "frc",
+            "email": "hello@frantic.com"
+        }
+    ],
+    "require": {
+    }
+}
