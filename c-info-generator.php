@@ -10,7 +10,7 @@
  *
  * @link              http://example.com
  * @since             1.0.0
- * @package           C-Info_Generator
+ * @package           C_Info_Generator
  *
  * @wordpress-plugin
  * Plugin Name:       C-Info Generator
@@ -118,70 +118,56 @@ function run_c_info_generator() {
 
 	function c_info_generator_settings_init() { 
 
-		register_setting( 'pluginPage', 'c_info_generator_settings' );
+		register_setting( 'cInfoPluginPage', 'c_info_generator_settings' );
 
 		add_settings_section(
 			'c_info_generator_pluginPage_section', 
 			'', 
 			'', 
-			'pluginPage'
+			'cInfoPluginPage'
 		);
 
 		add_settings_field( 
-			'c_info_generator_text_field_title_fi', 
-			__( 'Otsikko_FI', 'wordpress' ), 
-			array('c_info_generator_text_field_0_render', 'title_fi'), 
-			'pluginPage', 
+			'c_info_generator_text_field_publisher', 
+			__( 'publisher', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage', 
 			'c_info_generator_pluginPage_section' 
 		);
-
+/*
 		add_settings_field( 
-			'c_info_generator_text_field_title_sv', 
-			__( 'Otsikko_SV', 'wordpress' ), 
-			'c_info_generator_text_field_0_render(title_sv)', 
-			'pluginPage', 
+			'c_info_generator_text_field_header', 
+			__( 'header', 'wordpress' ), 
+			'c_info_generator_text_field_render', 
+			'cInfoPluginPage', 
 			'c_info_generator_pluginPage_section' 
 		);
+		*/
 
 		add_settings_field( 
-			'c_info_generator_text_field_title_en', 
-			__( 'Otsikko_EN', 'wordpress' ), 
-			'c_info_generator_text_field_0_render(title_en)', 
-			'pluginPage', 
-			'c_info_generator_pluginPage_section' 
-		);
-
-		
-		add_settings_field( 
-			'c_info_generator_textarea_field_intro_fi', 
-			__( 'Intro', 'wordpress' ), 
-			'c_info_generator_textarea_field_0_render', 
-			'pluginPage', 
+			'c_info_generator_textarea_field_description', 
+			__( 'description', 'wordpress' ), 
+			'c_info_generator_textarea_field_callback', 
+			'cInfoPluginPage', 
 			'c_info_generator_pluginPage_section' 
 		);
 		
 
 	}
 
-	function c_info_generator_text_field_0_render($id) { 
-		var_dump($id);
+	function c_info_generator_text_field_callback() { 
 		$options = get_option( 'c_info_generator_settings' );
-		$opt = 'c_info_generator_text_field_'.$id;
+		$opt = 'c_info_generator_text_field_publisher';
 		?>
-		<input type="text" name='c_info_generator_settings[<?php echo $options[$opt]; ?>' value='<?php echo $options[$opt]; ?>'>
+		<input type="text" name='c_info_generator_settings[c_info_generator_text_field_publisher]' value='<?php echo $options['c_info_generator_text_field_publisher']; ?>'>
 		<?php
-
 	}
 
-
-	function c_info_generator_textarea_field_0_render() { 
-
+	function c_info_generator_textarea_field_callback() { 
 		$options = get_option( 'c_info_generator_settings' );
 		?>
-		<textarea disabled cols='40' rows='5' name='c_info_generator_settings[c_info_generator_textarea_field_intro_fi]'> 
-		</textarea>
+		<textarea cols='40' rows='5' name='c_info_generator_settings[c_info_generator_textarea_field_description]'><?php echo $options['c_info_generator_textarea_field_description']; ?></textarea>
 		<?php
-
 	}
 
 
@@ -195,37 +181,35 @@ function run_c_info_generator() {
 			<p>Lorem ipsum</p>
 
 			<?php
-			settings_fields( 'pluginPage' );
-			do_settings_sections( 'pluginPage' );
+			settings_fields( 'cInfoPluginPage' );
+			do_settings_sections( 'cInfoPluginPage' );
 			submit_button();
 			echo '<br>';
 
-			echo '<h4 style="margin-bottom: 0;">'.__( 'Custom element:', 'wordpress' ).'</h4>';
+			echo '<h4 style="margin-bottom: 0;">'.__( 'Koodi:', 'wordpress' ).'</h4>';
 			echo '<br>';
 
-			echo '<code style="display: inline-block; margin: 0px 1px 25px;">&lt;c-info-generator url="'.home_url().'/wp-json/c-info-generator/v2/menus/'.$options['c_info_generator_text_field_0'].'"&gt;&lt;/c-info-generator&gt;';
-			echo '&lt;script src="'.home_url().'/app/plugins/c-info-generator/public/js/c-info-generator.js"&gt;&lt;/script&gt;</code>';
+			echo '<code style="display: inline-block; margin: 0px 1px 25px;">&lt;c-info publisher="Testi oy" material_choice=1 maker_choice_1="" maker_material_1="" maker_names_1="" maker_choice_2="Kuvat" maker_material_2="" maker_names_2="" maker_choice_3="Kuvat" maker_material_3="" maker_names_3="" text_right="1" video_right="1" sound_right="1" terms_link="" ext_cc="" video_cc="" sound_cc="" &gt;&lt;/c-info&gt;';
+			echo '&lt;script src="'.home_url().'/c-info.js"&gt;&lt;/script&gt;</code>';
 			echo '<br>';
 
 			echo '<h4 style="margin-bottom: 0;">'.__( 'Preview:', 'wordpress' ).'</h4>';
 			echo '<br>';
 
-			echo '<div style="width: 99%; height: 500px; background: white;">';
-			echo '<c-info-generator url="'.home_url().'/wp-json/c-info-generator/v2/menus/'.$options['c_info_generator_text_field_0'].'"></c-info-generator>';
-			echo '<script src="'.home_url().'/app/plugins/c-info-generator/public/js/c-info-generator.js"></script>';
-			echo '<iframe src="https://www.frantic.com" style="width: 100%; height: 100%;"></iframe>';
+			echo '<div>';
+			echo '<c-info publisher="Testi oy" material_choice=1 maker_choice_1="" maker_material_1="" maker_names_1="" maker_choice_2="Kuvat" maker_material_2="" maker_names_2="" maker_choice_3="Kuvat"	maker_material_3="" maker_names_3="" text_right="1" video_right="1" sound_right="1" terms_link="" ext_cc="" video_cc="" sound_cc="" style="position: inline-block;"></c-info>';
+			echo '<script src="'.home_url().'/c-info.js"></script>';
 			echo '</div>';
 			echo '<br>';
 			?>
 
 		</form>
-		<a href="https://github.com/frc/c-info-generator" style="position: absolute; bottom: 0;">Project source</a>
 		<?php
 
 	}
 
 	function c_info_generator_add_settings_link( $links ) {
-		$settings_link = '<a href="options-general.php?page=global_navigation">' . __( 'Settings' ) . '</a>';
+		$settings_link = '<a href="options-general.php?page=c_info">' . __( 'Settings' ) . '</a>';
 		array_unshift( $links, $settings_link );
 		return $links;
 	}

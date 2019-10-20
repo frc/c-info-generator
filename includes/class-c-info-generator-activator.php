@@ -6,8 +6,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    C-Info_Generator
- * @subpackage C-Info_Generator/includes
+ * @package    C_Info_Generator
+ * @subpackage C_Info_Generator/includes
  */
 
 /**
@@ -16,8 +16,8 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    C-Info_Generator
- * @subpackage C-Info_Generator/includes
+ * @package    C_Info_Generator
+ * @subpackage C_Info_Generator/includes
  * @author     Your Name <email@example.com>
  */
 class C_Info_Generator_Activator {

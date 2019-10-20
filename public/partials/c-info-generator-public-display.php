@@ -8,8 +8,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    C-Info_Generator
- * @subpackage C-Info_Generator/public/partials
+ * @package    C_Info_Generator
+ * @subpackage C_Info_Generator/public/partials
  */
 ?>
 

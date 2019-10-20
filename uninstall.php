@@ -22,7 +22,7 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Wp_Global_Nav
+ * @package    C_Info_Generator
  */
 
 // If uninstall not called from WordPress, then exit.

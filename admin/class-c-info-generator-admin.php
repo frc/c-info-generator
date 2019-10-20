@@ -6,8 +6,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    C-Info_Generator
- * @subpackage C-Info_Generator/admin
+ * @package    C_Info_Generator
+ * @subpackage C_Info_Generator/admin
  */
 
 /**
@@ -16,8 +16,8 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    C-Info_Generator
- * @subpackage C-Info_Generator/admin
+ * @package    C_Info_Generator
+ * @subpackage C_Info_Generator/admin
  * @author     Your Name <email@example.com>
  */
 class C_Info_Generator_Admin {
@@ -65,10 +65,10 @@ class C_Info_Generator_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in C-Info_Generator_Loader as all of the hooks are defined
+		 * defined in C_Info_Generator_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The C-Info_Generator_Loader will then create the relationship
+		 * The C_Info_Generator_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -88,10 +88,10 @@ class C_Info_Generator_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in C-Info_Generator_Loader as all of the hooks are defined
+		 * defined in C_Info_Generator_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The C-Info_Generator_Loader will then create the relationship
+		 * The C_Info_Generator_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */

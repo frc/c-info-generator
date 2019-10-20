@@ -6,8 +6,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    C-Info_Generator
- * @subpackage C-Info_Generator/public
+ * @package    C_Info_Generator
+ * @subpackage C_Info_Generator/public
  */
 
 /**
@@ -16,8 +16,8 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    C-Info_Generator
- * @subpackage C-Info_Generator/public
+ * @package    C_Info_Generator
+ * @subpackage C_Info_Generator/public
  * @author     Your Name <email@example.com>
  */
 class C_Info_Generator_Public {
@@ -65,15 +65,15 @@ class C_Info_Generator_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in C-Info_Generator_Loader as all of the hooks are defined
+		 * defined in C_Info_Generator_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The C-Info_Generator_Loader will then create the relationship
+		 * The C_Info_Generator_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->c_info_generator, plugin_dir_url( __FILE__ ) . 'css/c_info_generator.css', array(), $this->version, 'all' );
+		//wp_enqueue_style( $this->c_info_generator, plugin_dir_url( __FILE__ ) . 'css/c_info_generator.css', array(), $this->version, 'all' );
 
 	}
 
@@ -88,15 +88,15 @@ class C_Info_Generator_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in C-Info_Generator_Loader as all of the hooks are defined
+		 * defined in C_Info_Generator_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The C-Info_Generator_Loader will then create the relationship
+		 * The C_Info_Generator_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->c_info_generator, plugin_dir_url( __FILE__ ) . 'js/c_info_generator.js', array( 'jquery' ), $this->version, false );
+		//wp_enqueue_script( $this->c_info_generator, plugin_dir_url( __FILE__ ) . 'js/c_info_generator.js', array( 'jquery' ), $this->version, false );
 
 	}
 
