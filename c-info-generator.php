@@ -128,45 +128,130 @@ function run_c_info_generator() {
 		);
 
 		add_settings_field( 
-			'c_info_generator_text_field_publisher', 
+			'publisher', 
 			__( 'publisher', 'wordpress' ), 
 			'c_info_generator_text_field_callback', 
 			'cInfoPluginPage', 
-			'c_info_generator_pluginPage_section' 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'publisher' )
 		);
-/*
-		add_settings_field( 
-			'c_info_generator_text_field_header', 
-			__( 'header', 'wordpress' ), 
-			'c_info_generator_text_field_render', 
-			'cInfoPluginPage', 
-			'c_info_generator_pluginPage_section' 
-		);
-		*/
 
 		add_settings_field( 
-			'c_info_generator_textarea_field_description', 
+			'header', 
+			__( 'header', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'header' )
+		);
+
+		
+		add_settings_field( 
+			'maker_title', 
+			__( 'maker_title', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'maker_title' )
+		);
+
+		add_settings_field( 
+			'material_choice', 
+			__( 'material_choice', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'material_choice' )
+		);
+
+		add_settings_field( 
+			'maker_choice', 
+			__( 'maker_choice', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'maker_choice' )
+		);
+
+		add_settings_field( 
+			'right_title', 
+			__( 'right_title', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'right_title' )
+		);
+
+		add_settings_field( 
+			'video_title', 
+			__( 'video_title', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'video_title' )
+		);
+
+		add_settings_field( 
+			'sound_title', 
+			__( 'sound_title', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'sound_title' )
+		);
+
+		add_settings_field( 
+			'text_rights', 
+			__( 'text_rights', 'wordpress' ), 
+			'c_info_generator_textarea_field_callback', 
+			'cInfoPluginPage', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'text_rights' )
+		);
+
+		add_settings_field( 
+			'video_rights', 
+			__( 'video_rights', 'wordpress' ), 
+			'c_info_generator_textarea_field_callback', 
+			'cInfoPluginPage', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'video_rights' )
+		);
+
+		add_settings_field( 
+			'sound_rights', 
+			__( 'sound_rights', 'wordpress' ), 
+			'c_info_generator_textarea_field_callback', 
+			'cInfoPluginPage', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'sound_rights' )
+		);
+
+		add_settings_field( 
+			'description', 
 			__( 'description', 'wordpress' ), 
 			'c_info_generator_textarea_field_callback', 
 			'cInfoPluginPage', 
-			'c_info_generator_pluginPage_section' 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'description' )
 		);
 		
 
 	}
 
-	function c_info_generator_text_field_callback() { 
+	function c_info_generator_text_field_callback($opt) { 
 		$options = get_option( 'c_info_generator_settings' );
-		$opt = 'c_info_generator_text_field_publisher';
+		$name = 'c_info_generator_settings['.$opt['field'].']';
 		?>
-		<input type="text" name='c_info_generator_settings[c_info_generator_text_field_publisher]' value='<?php echo $options['c_info_generator_text_field_publisher']; ?>'>
+		<input type='text' name='<?php echo $name ?>' value='<?php echo $options[$opt['field']]; ?>'>
 		<?php
 	}
 
-	function c_info_generator_textarea_field_callback() { 
+	function c_info_generator_textarea_field_callback($opt) { 
 		$options = get_option( 'c_info_generator_settings' );
+		$name = 'c_info_generator_settings['.$opt['field'].']'
 		?>
-		<textarea cols='40' rows='5' name='c_info_generator_settings[c_info_generator_textarea_field_description]'><?php echo $options['c_info_generator_textarea_field_description']; ?></textarea>
+		<textarea cols='40' rows='5' name='<?php echo $name ?>'><?php echo $options[$opt['field']]; ?></textarea>
 		<?php
 	}
 
@@ -178,7 +263,7 @@ function run_c_info_generator() {
 		<form action='options.php' method='post'>
 
 			<h1>C-Info asetukset</h1>
-			<p>Lorem ipsum</p>
+			<p>Anna rajapinnasta haettavat vakioteksti eri kieliversoille. Erota monivalinta vaihtoehdot pilkulla (,).</p>
 
 			<?php
 			settings_fields( 'cInfoPluginPage' );
