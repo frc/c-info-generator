@@ -106,7 +106,9 @@ function run_c_info_generator() {
 	/* Plugin admin menu settings */
 
 	add_action( 'admin_menu', 'c_info_generator_add_admin_menu' );
-	add_action( 'admin_init', 'c_info_generator_settings_init' );
+	add_action( 'admin_init', 'c_info_generator_settings_init_fi' );
+	add_action( 'admin_init', 'c_info_generator_settings_init_en' );
+	add_action( 'admin_init', 'c_info_generator_settings_init_sv' );
 
 
 	function c_info_generator_add_admin_menu() { 
@@ -116,182 +118,452 @@ function run_c_info_generator() {
 	}
 
 
-	function c_info_generator_settings_init() { 
+	function c_info_generator_settings_init_fi() { 
 
-		register_setting( 'cInfoPluginPage', 'c_info_generator_settings' );
+		register_setting( 'cInfoPluginPage_fi', 'c_info_generator_settings_fi' );
 
 		add_settings_section(
 			'c_info_generator_pluginPage_section', 
 			'', 
 			'', 
-			'cInfoPluginPage'
+			'cInfoPluginPage_fi'
 		);
 
 		add_settings_field( 
-			'publisher', 
-			__( 'publisher', 'wordpress' ), 
+			'publisher_fi', 
+			__( 'publisher_fi', 'wordpress' ), 
 			'c_info_generator_text_field_callback', 
-			'cInfoPluginPage', 
+			'cInfoPluginPage_fi', 
 			'c_info_generator_pluginPage_section',
-			array ( 'field' => 'publisher' )
+			array ( 'field' => 'publisher_fi' )
 		);
 
 		add_settings_field( 
-			'header', 
-			__( 'header', 'wordpress' ), 
+			'header_fi', 
+			__( 'header_fi', 'wordpress' ), 
 			'c_info_generator_text_field_callback', 
-			'cInfoPluginPage', 
+			'cInfoPluginPage_fi', 
 			'c_info_generator_pluginPage_section',
-			array ( 'field' => 'header' )
+			array ( 'field' => 'header_fi' )
 		);
 
 		
 		add_settings_field( 
-			'maker_title', 
-			__( 'maker_title', 'wordpress' ), 
+			'maker_title_fi', 
+			__( 'maker_title_fi', 'wordpress' ), 
 			'c_info_generator_text_field_callback', 
-			'cInfoPluginPage', 
+			'cInfoPluginPage_fi', 
 			'c_info_generator_pluginPage_section',
-			array ( 'field' => 'maker_title' )
+			array ( 'field' => 'maker_title_fi' )
 		);
 
 		add_settings_field( 
-			'material_choice', 
-			__( 'material_choice', 'wordpress' ), 
+			'material_choice_fi', 
+			__( 'material_choice_fi', 'wordpress' ), 
 			'c_info_generator_text_field_callback', 
-			'cInfoPluginPage', 
+			'cInfoPluginPage_fi', 
 			'c_info_generator_pluginPage_section',
-			array ( 'field' => 'material_choice' )
+			array ( 'field' => 'material_choice_fi' )
 		);
 
 		add_settings_field( 
-			'maker_choice', 
-			__( 'maker_choice', 'wordpress' ), 
+			'maker_choice_fi', 
+			__( 'maker_choice_fi', 'wordpress' ), 
 			'c_info_generator_text_field_callback', 
-			'cInfoPluginPage', 
+			'cInfoPluginPage_fi', 
 			'c_info_generator_pluginPage_section',
-			array ( 'field' => 'maker_choice' )
+			array ( 'field' => 'maker_choice_fi' )
 		);
 
 		add_settings_field( 
-			'right_title', 
-			__( 'right_title', 'wordpress' ), 
+			'right_title_fi', 
+			__( 'right_title_fi', 'wordpress' ), 
 			'c_info_generator_text_field_callback', 
-			'cInfoPluginPage', 
+			'cInfoPluginPage_fi', 
 			'c_info_generator_pluginPage_section',
-			array ( 'field' => 'right_title' )
+			array ( 'field' => 'right_title_fi' )
 		);
 
 		add_settings_field( 
-			'video_title', 
-			__( 'video_title', 'wordpress' ), 
+			'video_title_fi', 
+			__( 'video_title_fi', 'wordpress' ), 
 			'c_info_generator_text_field_callback', 
-			'cInfoPluginPage', 
+			'cInfoPluginPage_fi', 
 			'c_info_generator_pluginPage_section',
-			array ( 'field' => 'video_title' )
+			array ( 'field' => 'video_title_fi' )
 		);
 
 		add_settings_field( 
-			'sound_title', 
-			__( 'sound_title', 'wordpress' ), 
+			'sound_title_fi', 
+			__( 'sound_title_fi', 'wordpress' ), 
 			'c_info_generator_text_field_callback', 
-			'cInfoPluginPage', 
+			'cInfoPluginPage_fi', 
 			'c_info_generator_pluginPage_section',
-			array ( 'field' => 'sound_title' )
+			array ( 'field' => 'sound_title_fi' )
 		);
 
 		add_settings_field( 
-			'text_rights', 
-			__( 'text_rights', 'wordpress' ), 
+			'text_rights_fi', 
+			__( 'text_rights_fi', 'wordpress' ), 
 			'c_info_generator_textarea_field_callback', 
-			'cInfoPluginPage', 
+			'cInfoPluginPage_fi', 
 			'c_info_generator_pluginPage_section',
-			array ( 'field' => 'text_rights' )
+			array ( 'field' => 'text_rights_fi' )
 		);
 
 		add_settings_field( 
-			'video_rights', 
-			__( 'video_rights', 'wordpress' ), 
+			'video_rights_fi', 
+			__( 'video_rights_fi', 'wordpress' ), 
 			'c_info_generator_textarea_field_callback', 
-			'cInfoPluginPage', 
+			'cInfoPluginPage_fi', 
 			'c_info_generator_pluginPage_section',
-			array ( 'field' => 'video_rights' )
+			array ( 'field' => 'video_rights_fi' )
 		);
 
 		add_settings_field( 
-			'sound_rights', 
-			__( 'sound_rights', 'wordpress' ), 
+			'sound_rights_fi', 
+			__( 'sound_rights_fi', 'wordpress' ), 
 			'c_info_generator_textarea_field_callback', 
-			'cInfoPluginPage', 
+			'cInfoPluginPage_fi', 
 			'c_info_generator_pluginPage_section',
-			array ( 'field' => 'sound_rights' )
+			array ( 'field' => 'sound_rights_fi' )
 		);
 
 		add_settings_field( 
-			'description', 
-			__( 'description', 'wordpress' ), 
+			'description_fi', 
+			__( 'description_fi', 'wordpress' ), 
 			'c_info_generator_textarea_field_callback', 
-			'cInfoPluginPage', 
+			'cInfoPluginPage_fi', 
 			'c_info_generator_pluginPage_section',
-			array ( 'field' => 'description' )
+			array ( 'field' => 'description_fi' )
 		);
 		
+	}
 
+	function c_info_generator_settings_init_en() { 
+
+		register_setting( 'cInfoPluginPage_en', 'c_info_generator_settings_en' );
+
+		add_settings_section(
+			'c_info_generator_pluginPage_section', 
+			'', 
+			'', 
+			'cInfoPluginPage_en'
+		);
+
+		add_settings_field( 
+			'publisher_en', 
+			__( 'publisher_en', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_en', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'publisher_en' )
+		);
+
+		add_settings_field( 
+			'header_en', 
+			__( 'header_en', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_en', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'header_en' )
+		);
+
+		add_settings_field( 
+			'maker_title_en', 
+			__( 'maker_title_en', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_en', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'maker_title_en' )
+		);
+
+		add_settings_field( 
+			'material_choice_en', 
+			__( 'material_choice_en', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_en', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'material_choice_en' )
+		);
+
+		add_settings_field( 
+			'maker_choice_en', 
+			__( 'maker_choice_en', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_en', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'maker_choice_en' )
+		);
+
+		add_settings_field( 
+			'right_title_en', 
+			__( 'right_title_en', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_en', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'right_title_en' )
+		);
+
+		add_settings_field( 
+			'video_title_en', 
+			__( 'video_title_en', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_en', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'video_title_en' )
+		);
+
+		add_settings_field( 
+			'sound_title_en', 
+			__( 'sound_title_en', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_en', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'sound_title_en' )
+		);
+
+		add_settings_field( 
+			'text_rights_en', 
+			__( 'text_rights_en', 'wordpress' ), 
+			'c_info_generator_textarea_field_callback', 
+			'cInfoPluginPage_en', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'text_rights_en' )
+		);
+
+		add_settings_field( 
+			'video_rights_en', 
+			__( 'video_rights_en', 'wordpress' ), 
+			'c_info_generator_textarea_field_callback', 
+			'cInfoPluginPage_en', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'video_rights_en' )
+		);
+
+		add_settings_field( 
+			'sound_rights_en', 
+			__( 'sound_rights_en', 'wordpress' ), 
+			'c_info_generator_textarea_field_callback', 
+			'cInfoPluginPage_en', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'sound_rights_en' )
+		);
+
+		add_settings_field( 
+			'description_en', 
+			__( 'description_en', 'wordpress' ), 
+			'c_info_generator_textarea_field_callback', 
+			'cInfoPluginPage_en', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'description_en' )
+		);
+		
+	}
+
+	function c_info_generator_settings_init_sv() { 
+
+		register_setting( 'cInfoPluginPage_sv', 'c_info_generator_settings_sv' );
+
+		add_settings_section(
+			'c_info_generator_pluginPage_section', 
+			'', 
+			'', 
+			'cInfoPluginPage_sv'
+		);
+
+		add_settings_field( 
+			'publisher_sv', 
+			__( 'publisher_sv', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_sv', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'publisher_sv' )
+		);
+
+		add_settings_field( 
+			'header_sv', 
+			__( 'header_sv', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_sv', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'header_sv' )
+		);
+
+		
+		add_settings_field( 
+			'maker_title_sv', 
+			__( 'maker_title_sv', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_sv', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'maker_title_sv' )
+		);
+
+		add_settings_field( 
+			'material_choice_sv', 
+			__( 'material_choice_sv', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_sv', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'material_choice_sv' )
+		);
+
+		add_settings_field( 
+			'maker_choice_sv', 
+			__( 'maker_choice_sv', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_sv', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'maker_choice_sv' )
+		);
+
+		add_settings_field( 
+			'right_title_sv', 
+			__( 'right_title_sv', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_sv', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'right_title_sv' )
+		);
+
+		add_settings_field( 
+			'video_title_sv', 
+			__( 'video_title_sv', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_sv', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'video_title_sv' )
+		);
+
+		add_settings_field( 
+			'sound_title_sv', 
+			__( 'sound_title_sv', 'wordpress' ), 
+			'c_info_generator_text_field_callback', 
+			'cInfoPluginPage_sv', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'sound_title_sv' )
+		);
+
+		add_settings_field( 
+			'text_rights_sv', 
+			__( 'text_rights_sv', 'wordpress' ), 
+			'c_info_generator_textarea_field_callback', 
+			'cInfoPluginPage_sv', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'text_rights_sv' )
+		);
+
+		add_settings_field( 
+			'video_rights_sv', 
+			__( 'video_rights_sv', 'wordpress' ), 
+			'c_info_generator_textarea_field_callback', 
+			'cInfoPluginPage_sv', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'video_rights_sv' )
+		);
+
+		add_settings_field( 
+			'sound_rights_sv', 
+			__( 'sound_rights_sv', 'wordpress' ), 
+			'c_info_generator_textarea_field_callback', 
+			'cInfoPluginPage_sv', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'sound_rights_sv' )
+		);
+
+		add_settings_field( 
+			'description_sv', 
+			__( 'description_sv', 'wordpress' ), 
+			'c_info_generator_textarea_field_callback', 
+			'cInfoPluginPage_sv', 
+			'c_info_generator_pluginPage_section',
+			array ( 'field' => 'description_sv' )
+		);
+		
 	}
 
 	function c_info_generator_text_field_callback($opt) { 
-		$options = get_option( 'c_info_generator_settings' );
-		$name = 'c_info_generator_settings['.$opt['field'].']';
+		$lang = substr(strrchr($opt['field'], "_"), 1);
+		$options = get_option( 'c_info_generator_settings_' . $lang );
+		$name = 'c_info_generator_settings_'.$lang.'['.$opt['field'].']';
 		?>
-		<input type='text' name='<?php echo $name ?>' value='<?php echo $options[$opt['field']]; ?>'>
+		<input type='text' name='<?php echo $name ?>' value='<?= isset( $options[$opt['field']] ) ? $options[$opt['field']] : ''; ?>'>
 		<?php
 	}
 
 	function c_info_generator_textarea_field_callback($opt) { 
-		$options = get_option( 'c_info_generator_settings' );
-		$name = 'c_info_generator_settings['.$opt['field'].']'
+		$lang = substr(strrchr($opt['field'], "_"), 1);
+		$options = get_option( 'c_info_generator_settings_'  . $lang );
+		$name = 'c_info_generator_settings_'.$lang.'['.$opt['field'].']'
 		?>
-		<textarea cols='40' rows='5' name='<?php echo $name ?>'><?php echo $options[$opt['field']]; ?></textarea>
+		<textarea cols='40' rows='5' name='<?php echo $name ?>'><?= isset( $options[$opt['field']] ) ? $options[$opt['field']] : ''; ?></textarea>
 		<?php
 	}
 
-
 	function c_info_generator_options_page() { 
 
-		$options = get_option( 'c_info_generator_settings' );
-		?>
-		<form action='options.php' method='post'>
+        ?>
+        <h1>C-Info asetukset</h1>
+		<p>Anna rajapinnasta haettavat vakioteksti eri kieliversoille. Erota monivalinta vaihtoehdot pilkulla (,).</p>
+        <?php
+            if ( isset( $_GET[ 'tab' ] ) ) {
+                $active_tab = $_GET[ 'tab' ];
+            } else {
+                $active_tab = 'pluginPage_fi' ;
+            }
+        ?>
+         
+        <h2 class="nav-tab-wrapper">
+            <a href="?page=c_info_generator&tab=pluginPage_fi" class="nav-tab <?php echo $active_tab == 'pluginPage_fi' ? 'nav-tab-active' : ''; ?>">C-info FI</a>
+            <a href="?page=c_info_generator&tab=pluginPage_en" class="nav-tab <?php echo $active_tab == 'pluginPage_en' ? 'nav-tab-active' : ''; ?>">C-info EN</a>
+            <a href="?page=c_info_generator&tab=pluginPage_sv" class="nav-tab <?php echo $active_tab == 'pluginPage_sv' ? 'nav-tab-active' : ''; ?>">C-info SV</a>
+        </h2>
 
-			<h1>C-Info asetukset</h1>
-			<p>Anna rajapinnasta haettavat vakioteksti eri kieliversoille. Erota monivalinta vaihtoehdot pilkulla (,).</p>
+        <form action='options.php' method='post'>
 
-			<?php
-			settings_fields( 'cInfoPluginPage' );
-			do_settings_sections( 'cInfoPluginPage' );
-			submit_button();
-			echo '<br>';
+            <?php
 
+			//settings_fields( 'cInfoPluginPage' );
+			//do_settings_sections( 'cInfoPluginPage' );
+
+            if ( $active_tab == 'pluginPage_en' ) {
+				echo '<h2>C-Info EN</h2>';
+				$options = get_option( 'c_info_generator_settings_en' );
+				settings_fields( 'cInfoPluginPage_en' );
+				do_settings_sections( 'cInfoPluginPage_en' );
+            } else if ($active_tab == 'pluginPage_sv') {
+				echo '<h2>C-Info SV</h2>';
+				$options = get_option( 'c_info_generator_settings_sv' );
+				settings_fields( 'cInfoPluginPage_sv' );
+				do_settings_sections( 'cInfoPluginPage_sv' );
+            } else  {
+				echo '<h2>C-Info FI</h2>';
+				$options = get_option( 'c_info_generator_settings_fi' );
+				settings_fields( 'cInfoPluginPage_fi' );
+				do_settings_sections( 'cInfoPluginPage_fi' );
+            }
+
+            submit_button();
+            echo '<br>';
 			echo '<h4 style="margin-bottom: 0;">'.__( 'Koodi:', 'wordpress' ).'</h4>';
 			echo '<br>';
-
 			echo '<code style="display: inline-block; margin: 0px 1px 25px;">&lt;c-info publisher="Testi oy" material_choice=1 maker_choice_1="" maker_material_1="" maker_names_1="" maker_choice_2="Kuvat" maker_material_2="" maker_names_2="" maker_choice_3="Kuvat" maker_material_3="" maker_names_3="" text_right="1" video_right="1" sound_right="1" terms_link="" ext_cc="" video_cc="" sound_cc="" &gt;&lt;/c-info&gt;';
 			echo '&lt;script src="'.home_url().'/c-info.js"&gt;&lt;/script&gt;</code>';
 			echo '<br>';
-
 			echo '<h4 style="margin-bottom: 0;">'.__( 'Preview:', 'wordpress' ).'</h4>';
 			echo '<br>';
-
 			echo '<div>';
 			echo '<c-info publisher="Testi oy" material_choice=1 maker_choice_1="" maker_material_1="" maker_names_1="" maker_choice_2="Kuvat" maker_material_2="" maker_names_2="" maker_choice_3="Kuvat"	maker_material_3="" maker_names_3="" text_right="1" video_right="1" sound_right="1" terms_link="" ext_cc="" video_cc="" sound_cc="" style="position: inline-block;"></c-info>';
 			echo '<script src="'.home_url().'/c-info.js"></script>';
 			echo '</div>';
 			echo '<br>';
-			?>
+            ?>
 
-		</form>
-		<?php
+        </form>
+        <?php
 
-	}
+    }
 
 	function c_info_generator_add_settings_link( $links ) {
 		$settings_link = '<a href="options-general.php?page=c_info">' . __( 'Settings' ) . '</a>';
