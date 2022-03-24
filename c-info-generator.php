@@ -1180,7 +1180,7 @@ function run_c_info_generator() {
     }
 
 	function c_info_generator_add_settings_link( $links ) {
-		$settings_link = '<a href="options-general.php?page=c_info">' . __( 'Settings' ) . '</a>';
+		$settings_link = '<a href="options-general.php?page=c_info_generator">' . __( 'Settings' ) . '</a>';
 		array_unshift( $links, $settings_link );
 		return $links;
 	}
